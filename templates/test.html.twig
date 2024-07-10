@@ -1,0 +1,12 @@
+<form action="{{ path('submit') }}" method="POST">
+    {% for question in questions %}
+        <h2>{{ question.text }}</h2>
+        {% for answer in question.answers %}
+            <label>
+                <input type="checkbox" name="{{ question.id }}[]" value="{{ answer.id }}">
+                {{ answer.text }}
+            </label><br>
+        {% endfor %}
+    {% endfor %}
+    <button type="submit">Submit</button>
+</form>

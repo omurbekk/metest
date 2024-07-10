@@ -1,0 +1,9 @@
+<h1>Результаты завершенных тестов</h1>
+{% for result in results %}
+    <h2>Время теста {{ result.createdAt|date('Y-m-d H:i') }}</h2>
+    <ul>
+        {% for questionId, isCorrect in result.results %}
+            <li style="color:{{ isCorrect ? 'green' : 'red' }}">Вопрос {{ questionId }}: {{ isCorrect ? 'Правильный' : 'Не правильный' }}</li>
+        {% endfor %}
+    </ul>
+{% endfor %}
